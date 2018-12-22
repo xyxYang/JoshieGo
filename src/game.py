@@ -1,3 +1,4 @@
+# encoding=utf-8
 import numpy as np
 import cv2
 
@@ -8,6 +9,7 @@ class Game(object):
             self.boards = [Board()]
             self.next_to_play = 1
         else:
+            # 让子
             board_mtx = np.zeros((19, 19), dtype=np.int)
             if handicap == 2:
                 board_mtx[3][15] = 1

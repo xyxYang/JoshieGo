@@ -1,3 +1,5 @@
+# !/usr/bin/python
+# encoding=utf-8
 from game import Game, Board
 import socket
 from MCTS import MCTS
@@ -5,8 +7,8 @@ from MCTS import MCTS
 
 HANDICAP = 0
 PORT = 6667
-HOST = '10.180.47.12'
-# HOST = '127.0.0.1'
+# HOST = '10.180.47.12'
+HOST = '127.0.0.1'
 
 
 class GamePlay(object):
@@ -19,6 +21,7 @@ class GamePlay(object):
 
 
 def client():
+    # 连接服务器端socket
     s = socket.socket()
     host = HOST
     print('connecting to ' + host)
@@ -58,6 +61,7 @@ def client():
 
 def server():
     import cv2
+    # 建立服务器端的socket
     s = socket.socket()
     host = socket.gethostname()
     print(host)
@@ -69,7 +73,7 @@ def server():
     s.listen(5)
     while True:
         print('listening...')
-        game = Game(handicap=HANDICAP)
+        game = Gatestme(handicap=HANDICAP)
         board_img = game.get_current_board_img()
         cv2.imshow('board_img', board_img)
         param = {'MCTS': False}
